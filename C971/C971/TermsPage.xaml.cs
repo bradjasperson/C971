@@ -7,9 +7,9 @@ using C971.Models;
 
 namespace C971
 {
-    public partial class NotesPage : ContentPage
+    public partial class TermsPage : ContentPage
     {
-        public NotesPage()
+        public TermsPage()
         {
             InitializeComponent();
         }
@@ -18,14 +18,14 @@ namespace C971
         {
             base.OnAppearing();
 
-            listView.ItemsSource = await App.Database.GetNotesAsync();
+            listView.ItemsSource = await App.Database.GetTermsAsync();
         }
 
-        async void OnNoteAddedClicked(object sender, EventArgs e)
+        async void OnTermAddedClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NoteEntryPage
+            await Navigation.PushAsync(new TermEntryPage
             {
-                BindingContext = new Note()
+                BindingContext = new Term()
             });
         }
 
@@ -33,9 +33,9 @@ namespace C971
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new NoteEntryPage
+                await Navigation.PushAsync(new TermEntryPage
                 {
-                    BindingContext = e.SelectedItem as Note
+                    BindingContext = e.SelectedItem as Term
                 });
             }
         }

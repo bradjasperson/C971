@@ -15,16 +15,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="NoteEntryPage.xaml.cs">
-      <DependentUpon>NoteEntryPage.xaml</DependentUpon>
+    <Compile Update="TermsPage.xaml.cs">
+      <DependentUpon>TermsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="TermEntryPage.xaml.cs">
+      <DependentUpon>TermEntryPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="NoteEntryPage.xaml">
+    <EmbeddedResource Update="TermEntryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="NotesPage.xaml">
+    <EmbeddedResource Update="TermsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

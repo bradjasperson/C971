@@ -7,15 +7,15 @@ namespace C971
 {
     public partial class App : Application
     {
-        static NoteDatabase database;
+        static TermDatabase database;
 
-        public static NoteDatabase Database
+        public static TermDatabase Database
         {
             get
             {
                 if (database == null)
                 {
-                    database = new NoteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
+                    database = new TermDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Terms.db3"));
                 }
                 return database;
             }
@@ -24,7 +24,7 @@ namespace C971
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new NotesPage());
+            MainPage = new NavigationPage(new TermsPage());
         }
 
         protected override void OnStart()

@@ -23,7 +23,7 @@
                      Priority="2"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <TableView Intent="Settings">
+        <TableView Intent="Settings" HasUnevenRows="True">
             <TableRoot>
                 <TableSection>
                     <ViewCell>
@@ -35,17 +35,18 @@
                                  TextColor="Black"/>
                         </StackLayout>
                     </ViewCell>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
+                    <ViewCell Height="300">
+                        <StackLayout Orientation="Vertical">
                             <Label Text="Courses"
                                    TextColor="Navy"
                                    WidthRequest="100"/>
                             <ListView x:Name="listView"
-                             ItemSelected="OnListViewItemSelected">
+                             ItemSelected="OnListViewItemSelected"
+                             HeightRequest="200">
                                  <ListView.ItemTemplate>
                                     <DataTemplate>
                                          <TextCell Text="{Binding Text}"
-                                              Detail="{Binding Detail}"
+                                              Detail="{Binding Status}"
                                               TextColor="Navy"/>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>

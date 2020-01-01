@@ -32,8 +32,6 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-
-
             <Button Text="Save"
                     Clicked="OnSaveButtonClicked" />
         </Grid>

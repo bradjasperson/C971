@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="CourseEntryPage.xaml.cs">
+      <DependentUpon>CourseEntryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="TermPage.xaml.cs">
       <DependentUpon>TermPage.xaml</DependentUpon>
     </Compile>

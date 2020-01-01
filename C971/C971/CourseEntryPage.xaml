@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.CourseEntryPage"
+             Title="Course">
+    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout Margin="20">
+            <Editor Placeholder="Enter your course title"
+                    Text="{Binding Text}"
+                    HeightRequest="50" />
+
+            <Label Text="Start Date:" />
+            <DatePicker x:Name="startDatePicker"
+                        Format="d"
+                        Margin="0, 0, 0, 0"
+                        DateSelected="OnDateSelected" />
+
+            <Label Text="End Date:" />
+
+            <DatePicker x:Name="endDatePicker"
+                        MinimumDate="{Binding Source={x:Reference startDatePicker},
+                                              Path=Date}"
+                        Format="d"
+                        Margin="0, 0, 0, 0"
+                        DateSelected="OnDateSelected" />
+            <Editor Placeholder="Instructor Name"
+                    Text="{Binding InstructorName}"
+                    HeightRequest="50" />
+            <Editor Placeholder="Instructor Email"
+                    Text="{Binding InstructorEmail}"
+                    HeightRequest="50" />
+            <Editor Placeholder="Instructor Phone"
+                    Text="{Binding InstructorPhone}"
+                    HeightRequest="50" />
+            <Picker x:Name="picker" Title="Status">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>In Progress</x:String>
+                        <x:String>Completed</x:String>
+                        <x:String>Dropped</x:String>
+                        <x:String>Plan To Take</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label x:Name="errorLabel"
+                   FontAttributes="Bold"
+                   TextColor="Red"
+                   HorizontalTextAlignment="Center" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Save"
+                        Clicked="OnSaveButtonClicked" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

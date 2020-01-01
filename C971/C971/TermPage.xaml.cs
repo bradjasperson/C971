@@ -48,5 +48,11 @@ namespace C971
                 BindingContext = new Term()
             });
         }
+        async void OnDeleteButtonClicked(object sender, EventArgs e)
+        {
+            var term = (Term)BindingContext;
+            await App.Database.DeleteTermAsync(term);
+            await Navigation.PopAsync();
+        }
     }
 }

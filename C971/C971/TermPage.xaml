@@ -2,39 +2,59 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="C971.TermPage"
+             Padding="10,10,10,10"
              >
     <NavigationPage.TitleView>
-        <Label Text="{Binding Text}" FontSize="12" TextColor="White" HorizontalTextAlignment="Start"/>
+        <Label Text="{Binding Text}" FontSize="15" TextColor="White" HorizontalTextAlignment="Start"/>
     </NavigationPage.TitleView>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit Term"
                      Clicked="OnTermEditClicked" 
                      Order="Secondary"
                      Priority="0"/>
+        <ToolbarItem Text="Delete Term"
+                     Clicked="OnDeleteButtonClicked"
+                     Order="Secondary"
+                     Priority="1"/>
         <ToolbarItem Text="Add Course"
                      Clicked="OnAddButtonClicked"
                      Order="Secondary"
-                     Priority="1"/>
+                     Priority="2"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Label Text="Term Dates: " FontSize="12" TextColor="Navy" HorizontalTextAlignment="Start"/>
-            <Label Grid.Column="1" Text="{Binding Detail}" FontSize="12" TextColor="Black"/>
-        </Grid>
-        <ListView x:Name="listView"
-              Margin="20"
-              ItemSelected="OnListViewItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Text}"
-                          Detail="{Binding Detail}"
-                          TextColor="Navy"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Dates"
+                                 TextColor="Navy" />
+                            <Label Text="{Binding Detail}"
+                                 HorizontalOptions="EndAndExpand"
+                                 TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Courses"
+                                   TextColor="Navy"
+                                   WidthRequest="100"/>
+                            <ListView x:Name="listView"
+                             ItemSelected="OnListViewItemSelected">
+                                 <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                         <TextCell Text="{Binding Text}"
+                                              Detail="{Binding Detail}"
+                                              TextColor="Navy"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+       
     </StackLayout>
 </ContentPage>

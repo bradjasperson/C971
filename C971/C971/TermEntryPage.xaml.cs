@@ -26,12 +26,6 @@ namespace C971
             else { errorLabel.Text = "Term Title is a required field!"; }
         }
 
-        async void OnDeleteButtonClicked(object sender, EventArgs e)
-        {
-            var term = (Term)BindingContext;
-            await App.Database.DeleteTermAsync(term);
-            await Navigation.PopAsync();
-        }
         void OnDateSelected(object sender, DateChangedEventArgs args)
         {
         }

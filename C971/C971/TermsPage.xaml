@@ -8,7 +8,7 @@
                      Clicked="OnTermAddedClicked" />
     </ContentPage.ToolbarItems>
     <ListView x:Name="listView"
-              Margin="20"
+              Margin="10"
               ItemSelected="OnListViewItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>

@@ -7,9 +7,9 @@ using C971.Models;
 
 namespace C971
 {
-    public partial class TermsPage : ContentPage
+    public partial class TermPage : ContentPage
     {
-        public TermsPage()
+        public TermPage()
         {
             InitializeComponent();
         }
@@ -17,15 +17,16 @@ namespace C971
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            listView.ItemsSource = await App.Database.GetTermsAsync();
+            var term = (Term)BindingContext;
+            listView.ItemsSource = await App.Database.GetCoursesAsync(term.ID);
         }
-
-        async void OnTermAddedClicked(object sender, EventArgs e)
+        
+        async void OnTermEditClicked(object sender, EventArgs e)
         {
+            var term = (Term)BindingContext;
             await Navigation.PushAsync(new TermEntryPage
             {
-                BindingContext = new Term()
+                BindingContext = term as Term
             });
         }
 
@@ -33,11 +34,19 @@ namespace C971
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new TermPage
+                await Navigation.PushAsync(new TermEntryPage
                 {
                     BindingContext = e.SelectedItem as Term
                 });
             }
+        }
+
+        async void OnAddButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TermEntryPage
+            {
+                BindingContext = new Term()
+            });
         }
     }
 }

@@ -5,6 +5,7 @@ using SQLite;
 
 namespace C971.Models
 {
+    [Table ("Assessment")]
     public class Assessment
     {
         [PrimaryKey, AutoIncrement]

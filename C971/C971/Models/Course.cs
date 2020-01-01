@@ -5,6 +5,7 @@ using SQLite;
 
 namespace C971.Models
 {
+    [Table ("Course")]
     public class Course
     {
         [PrimaryKey, AutoIncrement]
@@ -18,6 +19,6 @@ namespace C971.Models
         public string InstructorName { get; set; }
         public string InstructorPhone { get; set; }
         public string InstructorEmail { get; set; }
-        public List<string> Notes { get; set; }
+        public string Notes { get; set; }
     }
 }

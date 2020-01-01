@@ -5,6 +5,7 @@ using SQLite;
 
 namespace C971.Models
 {
+    [Table ("Term")]
     public class Term
     {
         [PrimaryKey, AutoIncrement]

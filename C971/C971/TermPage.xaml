@@ -43,9 +43,9 @@
                             <ListView x:Name="listView"
                              ItemSelected="OnListViewItemSelected"
                              HeightRequest="200">
-                                 <ListView.ItemTemplate>
+                                <ListView.ItemTemplate>
                                     <DataTemplate>
-                                         <TextCell Text="{Binding Text}"
+                                        <TextCell Text="{Binding Text}"
                                               Detail="{Binding Status}"
                                               TextColor="Navy"/>
                                     </DataTemplate>
@@ -56,6 +56,5 @@
                 </TableSection>
             </TableRoot>
         </TableView>
-       
     </StackLayout>
 </ContentPage>

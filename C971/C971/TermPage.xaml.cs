@@ -44,8 +44,10 @@ namespace C971
         async void OnAddButtonClicked(object sender, EventArgs e)
         {
             var term = (Term)BindingContext;
-            Course course = new Course();
-            course.TermID = term.ID;
+            Course course = new Course
+            {
+                TermID = term.ID
+            };
             await Navigation.PushAsync(new CourseEntryPage
             {
                 BindingContext = course as Course

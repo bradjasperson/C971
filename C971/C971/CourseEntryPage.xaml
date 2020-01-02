@@ -42,10 +42,20 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="Notification"
+                   Text="Notifications"
+                   TextColor="Navy"/>
+                <Switch IsToggled="{Binding Notifications}" Margin="-30, 0, -30, 0" OnColor="SkyBlue" ThumbColor="Navy"></Switch>
+            </Grid>
             <Label x:Name="errorLabel"
                    FontAttributes="Bold"
                    TextColor="Red"
-                   HorizontalTextAlignment="Center" />
+                   HorizontalTextAlignment="Center"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

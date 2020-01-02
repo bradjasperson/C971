@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.NotesPage"
+             Title="Course Notes">
+    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout Margin="20">
+            <Editor Placeholder="Enter Course Notes"
+                    Text="{Binding Notes}"
+                    HeightRequest="200" />
+            <Label x:Name="errorLabel"
+                   FontAttributes="Bold"
+                   TextColor="Red"
+                   HorizontalTextAlignment="Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Save"
+                        Clicked="OnSaveButtonClicked" FontSize="12" BackgroundColor="Green" TextColor="White"/>
+                <Button x:Name="BtnShare" Text="Share" Clicked="BtnShare_Clicked" Grid.Column="1" FontSize="12" BackgroundColor="Navy" TextColor="White"/>
+                <Button Text="Delete"
+                        Clicked="OnDeleteButtonClicked" BackgroundColor="Red" TextColor="White" Grid.Column="2" FontSize="12"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

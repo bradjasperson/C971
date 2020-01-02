@@ -19,6 +19,7 @@ namespace C971
             base.OnAppearing();
             var term = (Term)BindingContext;
             listView.ItemsSource = await App.Database.GetCoursesAsync(term.ID);
+            BindingContext = await App.Database.GetTermAsync(term.ID);
         }
         
         async void OnTermEditClicked(object sender, EventArgs e)
@@ -34,9 +35,9 @@ namespace C971
         {
             if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(new TermEntryPage
+                await Navigation.PushAsync(new CoursePage
                 {
-                    BindingContext = e.SelectedItem as Term
+                    BindingContext = e.SelectedItem as Course
                 });
             }
         }

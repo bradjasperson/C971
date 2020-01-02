@@ -80,9 +80,11 @@ namespace C971.Data
         }
 
         //Assessment Functions
-        public Task<List<Assessment>> GetAssessmentsAsync()
+        public Task<List<Assessment>> GetAssessmentsAsync(int courseId)
         {
-            return _database.Table<Assessment>().ToListAsync();
+            return _database.Table<Assessment>()
+                            .Where(i => i.CourseID == courseId)
+                            .ToListAsync();
         }
 
         public Task<Assessment> GetAssessmentAsync(int id)

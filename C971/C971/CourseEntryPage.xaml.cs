@@ -11,6 +11,16 @@ namespace C971
         {
             InitializeComponent();
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var course = (Course)BindingContext;
+            if (course.Status != null)
+            {
+                picker.SelectedItem = course.Status;
+            }
+        }
         
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
@@ -18,6 +28,7 @@ namespace C971
             course.StartDate = startDatePicker.Date;
             course.EndDate = endDatePicker.Date;
             course.Detail = $"{course.StartDate.ToShortDateString()} - {course.EndDate.ToShortDateString()}";
+            course.InstructorDetail = $"{course.InstructorName} \n {course.InstructorEmail} \n {course.InstructorPhone}";
             try
             {
                 course.Status = (string)picker.ItemsSource[picker.SelectedIndex];

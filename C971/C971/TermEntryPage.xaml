@@ -33,7 +33,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Text="Save"
-                    Clicked="OnSaveButtonClicked" />
+                    Clicked="OnSaveButtonClicked" BackgroundColor="Green" TextColor="White"/>
         </Grid>
     </StackLayout>
 </ContentPage>

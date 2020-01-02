@@ -10,12 +10,11 @@ namespace C971.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public int TermID { get; set; }
         public int CourseID { get; set; }
         public string Text { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
         public string Detail { get; set; }
+        public DateTime DueDate { get; set; }
         public string AssessmentType { get; set; }
+        public bool Notifications { get; set; }
     }
 }

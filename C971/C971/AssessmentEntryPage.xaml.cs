@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Plugin.LocalNotifications;
 using Xamarin.Forms;
 using C971.Models;
 
@@ -38,6 +39,10 @@ namespace C971
             assessment.Detail = $"{assessment.AssessmentType} - {assessment.DueDate.ToShortDateString()}";
             if (String.IsNullOrWhiteSpace(assessment.Text) == false & assessment.AssessmentType != null)
             {
+                if (assessment.Notifications)
+                {
+                    CrossLocalNotifications.Current.Show($"{assessment.Text} is due Today!", $"The {assessment.AssessmentType} assessment {assessment.Text}  is due today! Good Luck!", 103, assessment.DueDate.AddSeconds(5));
+                }
                 await App.Database.SaveAssessmentAsync(assessment);
                 await Navigation.PopAsync();
             }

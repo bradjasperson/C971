@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Plugin.LocalNotifications;
 using Xamarin.Forms;
 using C971.Models;
 
@@ -39,6 +40,11 @@ namespace C971
             }
             if (String.IsNullOrWhiteSpace(course.Text) == false & String.IsNullOrWhiteSpace(course.InstructorName) == false & String.IsNullOrWhiteSpace(course.InstructorEmail) == false & String.IsNullOrWhiteSpace(course.InstructorPhone) == false & course.Status != null)
             {
+                if (course.Notifications)
+                {
+                    CrossLocalNotifications.Current.Show($"{course.Text} is starting Today!", $"The course {course.Text} is beginning today. Good luck!", 100, course.StartDate.AddSeconds(5));
+                    CrossLocalNotifications.Current.Show($"{course.Text} is ending Today.", $"The course {course.Text} is ending today. We hope you enjoyed it!", 101, course.EndDate.AddSeconds(5));
+                }
                 await App.Database.SaveCourseAsync(course);
                 await Navigation.PopAsync();
             }

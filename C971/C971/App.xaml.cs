@@ -1,7 +1,10 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using C971.Data;
+using C971.Models;
+using System.Threading.Tasks;
 
 namespace C971
 {
@@ -24,12 +27,15 @@ namespace C971
         public App()
         {
             InitializeComponent();
+            SampleData autoPop = new SampleData();
+            autoPop.AutoPop();
             MainPage = new NavigationPage(new TermsPage());
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
+            
         }
 
         protected override void OnSleep()

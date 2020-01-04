@@ -19,6 +19,7 @@ namespace C971
             base.OnAppearing();
 
             listView.ItemsSource = await App.Database.GetTermsAsync();
+            
         }
 
         async void OnTermAddedClicked(object sender, EventArgs e)

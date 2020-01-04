@@ -45,14 +45,18 @@ namespace C971
         async void OnAddButtonClicked(object sender, EventArgs e)
         {
             var course = (Course)BindingContext;
-            Assessment assessment = new Assessment
+            List <Assessment> assessments = await App.Database.GetAssessmentsAsync(course.ID);
+            if (assessments.Count < 2)
             {
-                CourseID = course.ID
-            };
-            await Navigation.PushAsync(new AssessmentEntryPage
-            {
-                BindingContext = assessment as Assessment
-            });
+                Assessment assessment = new Assessment
+                {
+                    CourseID = course.ID
+                };
+                await Navigation.PushAsync(new AssessmentEntryPage
+                {
+                    BindingContext = assessment as Assessment
+                });
+            }
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {

@@ -45,14 +45,18 @@ namespace C971
         async void OnAddButtonClicked(object sender, EventArgs e)
         {
             var term = (Term)BindingContext;
-            Course course = new Course
+            List<Course> courses = await App.Database.GetCoursesAsync(term.ID);
+            if (courses.Count < 6)
             {
-                TermID = term.ID
-            };
-            await Navigation.PushAsync(new CourseEntryPage
-            {
-                BindingContext = course as Course
-            });
+                Course course = new Course
+                {
+                    TermID = term.ID
+                };
+                await Navigation.PushAsync(new CourseEntryPage
+                {
+                    BindingContext = course as Course
+                });
+            }
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
